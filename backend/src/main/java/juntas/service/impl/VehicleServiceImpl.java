@@ -1,7 +1,7 @@
 package juntas.service.impl;
 
-import juntas.dto.request.VehicleRequestDto;
-import juntas.dto.response.VehicleResponseDto;
+import juntas.dto.vehicle.VehicleRequestDto;
+import juntas.dto.vehicle.VehicleResponseDto;
 import juntas.exception.ResourceNotFoundException;
 import juntas.mapper.GenericMapper;
 import juntas.model.User;

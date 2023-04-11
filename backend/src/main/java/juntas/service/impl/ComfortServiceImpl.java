@@ -1,7 +1,7 @@
 package juntas.service.impl;
 
-import juntas.dto.request.ComfortRequestDto;
-import juntas.dto.response.ComfortResponseDto;
+import juntas.dto.comfort.ComfortRequestDto;
+import juntas.dto.comfort.ComfortResponseDto;
 import juntas.exception.ResourceNotFoundException;
 import juntas.mapper.GenericMapper;
 import juntas.model.Comfort;

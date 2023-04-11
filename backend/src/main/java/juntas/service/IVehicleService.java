@@ -1,7 +1,7 @@
 package juntas.service;
 
-import juntas.dto.request.VehicleRequestDto;
-import juntas.dto.response.VehicleResponseDto;
+import juntas.dto.vehicle.VehicleRequestDto;
+import juntas.dto.vehicle.VehicleResponseDto;
 
 public interface IVehicleService{
     VehicleResponseDto create(VehicleRequestDto requestDto);

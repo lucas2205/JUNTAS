@@ -31,7 +31,6 @@ public class Journey implements Serializable {
     @JoinColumn(name = "vehicle_journey")
     private Vehicle vehicle;
 
-    private Long driverId;
     @ManyToMany
     private List<User> users;
 

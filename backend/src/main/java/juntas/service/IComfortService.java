@@ -1,7 +1,7 @@
 package juntas.service;
 
-import juntas.dto.request.ComfortRequestDto;
-import juntas.dto.response.ComfortResponseDto;
+import juntas.dto.comfort.ComfortRequestDto;
+import juntas.dto.comfort.ComfortResponseDto;
 
 public interface IComfortService {
 

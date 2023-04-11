@@ -8,6 +8,7 @@ import java.time.LocalDate;
 
 @Setter
 @Getter
+
 public class UserResponseDto {
 
     private Long id;

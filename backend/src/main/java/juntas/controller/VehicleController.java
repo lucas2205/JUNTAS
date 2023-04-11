@@ -1,7 +1,7 @@
 package juntas.controller;
 
 
-import juntas.dto.request.VehicleRequestDto;
+import juntas.dto.vehicle.VehicleRequestDto;
 import juntas.service.IVehicleService;
 
 import org.springframework.http.HttpStatus;

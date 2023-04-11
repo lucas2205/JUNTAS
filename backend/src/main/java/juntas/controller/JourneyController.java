@@ -1,8 +1,7 @@
 package juntas.controller;
 
-import juntas.dto.comfort.ComfortRequestDto;
-
-import juntas.service.IComfortService;
+import juntas.dto.journey.JourneyRequestDto;
+import juntas.service.IJourneyService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,17 +10,17 @@ import org.springframework.web.bind.annotation.*;
 import static juntas.handler.ResponseBuilder.responseBuilder;
 
 @RestController
-@RequestMapping("/comfort")
-public record ComfortController(IComfortService service) {
-
+@RequestMapping("/journey")
+public record JourneyController(IJourneyService service){
+    
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody ComfortRequestDto requestDto){
+    public ResponseEntity<?> create(@RequestBody JourneyRequestDto requestDto){
         return responseBuilder(HttpStatus.CREATED,service.create(requestDto));
     }
 
     @PutMapping("/{id}")
-    public  ResponseEntity<?> update(@PathVariable Long id, @RequestBody ComfortRequestDto requestDto) {
-        return responseBuilder(HttpStatus.OK,service.update(id,requestDto));
+    public  ResponseEntity<?> update(@RequestBody JourneyRequestDto requestDto) {
+        return responseBuilder(HttpStatus.OK,service.update(requestDto));
     }
 
     @GetMapping("/{id}")
@@ -29,9 +28,15 @@ public record ComfortController(IComfortService service) {
         return responseBuilder(HttpStatus.OK,service.getById(id));
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<?> getAll(){
+        return responseBuilder(HttpStatus.OK,service.getAll());
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id){
         service.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    
 }
