@@ -33,7 +33,14 @@ public class SecurityConfig {
 
                 .and()
                 .authorizeRequests()
-                .antMatchers("/users/**", "/h2-console/**").permitAll()
+                .antMatchers("/users/**",
+                        "/h2-console/**",
+                        "/api/v2/api-docs/**",
+                        "/v2/api-docs/**",
+                        "/swagger-ui/**",
+                        "/swagger-resources/**",
+                        "/api-docs/**",
+                        "/webjars/**").permitAll()
                 .anyRequest().authenticated()
 
                 .and()
