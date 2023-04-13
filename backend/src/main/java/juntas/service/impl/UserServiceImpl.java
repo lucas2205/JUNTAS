@@ -46,7 +46,7 @@ public class UserServiceImpl implements IUserService, UserDetailsService {
             user.setRole(role);
 
             UserResponseDto response = mapper.map(repository.save(user), UserResponseDto.class);
-            response.setToken(JwtUtil.generateToken(user));
+
 
         return response;
     }
