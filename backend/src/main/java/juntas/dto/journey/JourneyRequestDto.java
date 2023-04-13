@@ -12,6 +12,7 @@ public class JourneyRequestDto {
     private LocalDate createDate;
     private LocalDateTime departureDate;
     private LocalDate arrivalDate;
+    private int price;
     @NotNull
     private Long comfortId;
     @NotNull

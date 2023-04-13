@@ -19,5 +19,6 @@ public class JourneyResponseDto {
     private Vehicle vehicle;
     private Place arrival;
     private Place departure;
+    private int price;
 
 }

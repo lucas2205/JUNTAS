@@ -1,5 +1,6 @@
 package juntas.controller;
 
+import io.swagger.annotations.ApiOperation;
 import juntas.dto.place.PlaceRequestDto;
 import juntas.dto.place.PlaceResponseDto;
 import juntas.service.IPlaceService;
@@ -10,21 +11,26 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+import static juntas.handler.ResponseBuilder.responseBuilder;
+
 @RestController
 @RequestMapping("/places")
 public record PlaceController(IPlaceService placeService) {
+
+
     @PostMapping
-    public ResponseEntity<PlaceResponseDto> createPlace(@Valid @RequestBody PlaceRequestDto toCreate) {
-        return new ResponseEntity<>(placeService.createPlace(toCreate), HttpStatus.CREATED);
+    public ResponseEntity<?> createPlace(@Valid @RequestBody PlaceRequestDto toCreate) {
+        return responseBuilder(HttpStatus.CREATED,placeService.createPlace(toCreate));
     }
     @PutMapping("/{id}")
-    public ResponseEntity<PlaceResponseDto> updatePlace(@PathVariable Long id, @RequestBody PlaceRequestDto toUpdate) {
-        return new ResponseEntity<>(placeService.updatePlace(id, toUpdate), HttpStatus.OK);
+    public ResponseEntity<?> updatePlace(@PathVariable Long id, @RequestBody PlaceRequestDto toUpdate) {
+
+        return responseBuilder(HttpStatus.OK,placeService.updatePlace(id, toUpdate));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PlaceResponseDto> findById(@PathVariable Long id){
-        return new ResponseEntity<>(placeService.findById(id), HttpStatus.FOUND);
+    public ResponseEntity<?> findById(@PathVariable Long id){
+        return responseBuilder(HttpStatus.FOUND,placeService.findById(id));
     }
 
     @GetMapping("/city")
@@ -36,7 +42,8 @@ public record PlaceController(IPlaceService placeService) {
         return new ResponseEntity<>(placeService.findByProvince(province), HttpStatus.FOUND);
     }
     @DeleteMapping("/{id}")
-    public void deletePlace(@PathVariable Long id) {
+    public ResponseEntity<?> deletePlace(@PathVariable Long id) {
         placeService.deletePlace(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

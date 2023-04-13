@@ -24,6 +24,7 @@ public class Journey implements Serializable {
     private LocalDate createDate;
     private LocalDateTime departureDate;
     private LocalDate arrivalDate;
+    private int price;
     @OneToOne
     @JoinColumn(name = "comfort_journey")
     private Comfort comfort;

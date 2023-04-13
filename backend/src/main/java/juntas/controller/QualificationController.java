@@ -7,23 +7,26 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import static juntas.handler.ResponseBuilder.responseBuilder;
+
 @RestController
 @RequestMapping("/qualifications")
 public record QualificationController(IQualificationService service) {
     @PostMapping()
-    public ResponseEntity<QualificationResponseDto> createQualification(@RequestBody QualificationRequestDto qualification) {
-        return new ResponseEntity<>(service.createQualification(qualification), HttpStatus.CREATED);
+    public ResponseEntity<?> createQualification(@RequestBody QualificationRequestDto qualification) {
+        return responseBuilder(HttpStatus.CREATED,service.createQualification(qualification));
     }
     @PutMapping("/{id}")
-    public ResponseEntity<QualificationResponseDto> updateQualification(@PathVariable Long id, @RequestBody QualificationRequestDto qualification) {
-        return new ResponseEntity<>(service.updateQualification(id, qualification), HttpStatus.ACCEPTED);
+    public ResponseEntity<?> updateQualification(@PathVariable Long id, @RequestBody QualificationRequestDto qualification) {
+        return responseBuilder( HttpStatus.ACCEPTED,service.updateQualification(id, qualification));
     }
     @GetMapping("/{id}")
-    public ResponseEntity<QualificationResponseDto> getById(@PathVariable Long id){
-        return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
+    public ResponseEntity<?> getById(@PathVariable Long id){
+        return responseBuilder( HttpStatus.OK,service.getById(id));
     }
     @DeleteMapping("/{id}")
-    public void deleteQualification(@PathVariable Long id){
+    public ResponseEntity<?> deleteQualification(@PathVariable Long id){
         service.deleteQualification(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
