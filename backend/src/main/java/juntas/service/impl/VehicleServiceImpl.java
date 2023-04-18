@@ -40,7 +40,7 @@ public class VehicleServiceImpl implements IVehicleService {
         vehicle.setPrimaryBrand(request.getPrimaryBrand());
         vehicle.setModelName(request.getModelName());
         vehicle.setPatentNumber(request.getPatentNumber());
-        vehicle.setIsVerified(request.getIsVerified());
+
 
         return mapper.map(repository.save(vehicle), VehicleResponseDto.class);
     }

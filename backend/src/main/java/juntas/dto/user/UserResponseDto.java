@@ -21,4 +21,5 @@ public class UserResponseDto {
     private Boolean isConfirmedEmail;
     private Boolean hasConfirmedDni;
     private String profileImage;
+    private String token;
 }

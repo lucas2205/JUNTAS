@@ -22,6 +22,9 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
+    private Provider provider;
+
     @Column(unique = true)
     private String email;
 
@@ -45,10 +48,10 @@ public class User implements Serializable {
     private LocalDate registerDate;
 
     @Column(name = "email_confirmed")
-    private Boolean isConfirmedEmail;
+    private boolean isConfirmedEmail;
 
     @Column(name = "dni_confirmed")
-    private Boolean hasConfirmedDni;
+    private boolean hasConfirmedDni;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     @JsonIgnore

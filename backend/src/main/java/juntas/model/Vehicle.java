@@ -23,7 +23,7 @@ public class Vehicle implements Serializable {
     private String primaryBrand;
     private String modelName;
     private String patentNumber;
-    private Boolean isVerified;
+    private boolean isVerified;
     @OneToOne
     @JoinColumn(name = "driver")
     private User driver;

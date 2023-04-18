@@ -44,9 +44,15 @@ public class SecurityConfig {
                 .anyRequest().authenticated()
 
                 .and()
+                .oauth2Login()
+                .authorizationEndpoint()
+                .and()
+                .defaultSuccessUrl("/users/oauth", true)
+
+                .and()
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
 
                 .and()
                 .build();

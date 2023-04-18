@@ -24,6 +24,5 @@ public class VehicleRequestDto {
         private String patentNumber;
         @NotNull(message = "the driver of the vehicle may not be null")
         private Long driverId;
-        private Boolean isVerified;
 
 }

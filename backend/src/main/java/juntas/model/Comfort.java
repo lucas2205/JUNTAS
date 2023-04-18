@@ -18,8 +18,8 @@ public class Comfort implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long comfortId;
-    private Boolean acceptChild;
-    private Boolean petFriendly;
-    private Boolean acceptSmokers;
-    private Boolean luggage;
+    private boolean acceptChild;
+    private boolean petFriendly;
+    private boolean acceptSmokers;
+    private boolean luggage;
 }
